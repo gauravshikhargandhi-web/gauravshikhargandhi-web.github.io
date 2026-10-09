@@ -144,13 +144,19 @@ a.eyebrow { text-decoration: none; }
 .path p { font-size: 15px; color: var(--muted-fg); }
 @keyframes slide-in { from { opacity: 0; transform: translateX(-28px); } to { opacity: 1; transform: none; } }
 
-/* Toolkit: three groups of pills */
-.kits { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
-.kit { display: grid; gap: 16px; align-content: start; padding: 24px; background: var(--card); border: var(--bw) solid var(--fg); border-radius: var(--r-lg) var(--r-lg) var(--r-lg) 0; box-shadow: var(--sticker); }
-.kit h3 { font-size: 1.25rem; }
-.kit ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
-.kit li { font: 600 13px/1.2 var(--body); padding: 8px 12px; border: var(--bw) solid var(--fg); border-radius: var(--r-full); background: var(--k); }
-.kit:nth-child(1) { --k: #EDE9FE; } .kit:nth-child(2) { --k: #FEF3C7; } .kit:nth-child(3) { --k: #D1FAE5; }
+/* Toolkit: three slim scrolling bands, alternating direction, pause on hover */
+.bands { display: grid; gap: 14px; }
+.band { --k: #EDE9FE; display: grid; grid-template-columns: 180px minmax(0, 1fr); align-items: center; gap: 0; background: var(--card); border: var(--bw) solid var(--fg); border-radius: var(--r-full); overflow: hidden; box-shadow: 4px 4px 0 0 var(--border); }
+.band:nth-child(2) { --k: #FEF3C7; } .band:nth-child(3) { --k: #D1FAE5; }
+.band h3 { align-self: stretch; display: flex; align-items: center; padding: 0 20px; font-size: 1rem; background: var(--k); border-right: var(--bw) solid var(--fg); white-space: nowrap; }
+.band-view { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+.band-track { display: flex; width: max-content; animation: band 60s linear infinite; }
+.band-track.rev { animation-direction: reverse; }
+.band:nth-child(2) .band-track { animation-duration: 48s; }
+.band:hover .band-track { animation-play-state: paused; }
+.band ul { list-style: none; margin: 0; padding: 10px 0 10px 10px; display: flex; gap: 10px; }
+.band li { flex: none; font: 600 13px/1 var(--body); padding: 9px 13px; border: var(--bw) solid var(--fg); border-radius: var(--r-full); background: var(--k); white-space: nowrap; }
+@keyframes band { to { transform: translateX(-50%); } }
 
 /* Track markers: small colored dots, like studs on a brick */
 .studs { display: inline-flex; gap: 4px; vertical-align: middle; }
@@ -257,7 +263,7 @@ figcaption { font: 500 13px/1.45 var(--body); color: var(--muted-fg); }
 /* Motion: pop in with a bounce, wiggle icons on hover */
 @keyframes pop { from { opacity: 0; transform: scale(.85); } to { opacity: 1; transform: none; } }
 @keyframes wiggle { 0%, 100% { rotate: 0deg; } 25% { rotate: 6deg; } 75% { rotate: -6deg; } }
-.hero > *, .track, .grid > .card, .figures > div, .kit { animation: pop .6s var(--bounce) both; }
+.hero > *, .track, .grid > .card, .figures > div { animation: pop .6s var(--bounce) both; }
 .hero > :nth-child(2) { animation-delay: .1s; }
 .track:nth-child(2) { animation-delay: .08s; } .track:nth-child(3) { animation-delay: .16s; }
 
@@ -265,9 +271,10 @@ figcaption { font: 500 13px/1.45 var(--body); color: var(--muted-fg); }
   .tracks, .path { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .tracks { row-gap: 52px; }
   .tracks::before, .path::before { display: none; }
-  .kits { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 860px) {
+  .band { grid-template-columns: minmax(0, 1fr); border-radius: var(--r-md); }
+  .band h3 { border-right: 0; border-bottom: var(--bw) solid var(--fg); padding: 10px 16px; }
   .site-head { position: static; }
   main { padding-block: 32px 72px; }
   .section { padding-block: 72px 0; }
@@ -292,6 +299,7 @@ figcaption { font: 500 13px/1.45 var(--body); color: var(--muted-fg); }
   .cv-item { grid-template-columns: minmax(0, 1fr); gap: 10px; }
 }
 @media (prefers-reduced-motion: reduce) {
+  .band-track { width: auto; } .band ul { flex-wrap: wrap; padding-right: 10px; } .band ul[aria-hidden] { display: none; } .band-view { -webkit-mask-image: none; mask-image: none; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .card:hover, .track:hover, .gallery figure:hover img, .btn.primary:hover { transform: none; }
 }
