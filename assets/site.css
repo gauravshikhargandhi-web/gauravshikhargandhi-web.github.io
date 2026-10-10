@@ -259,7 +259,7 @@ a.chip:hover { background: var(--yellow); border-color: var(--fg); color: var(--
 .links a::after { content: "\2197"; }
 .links a:hover { color: var(--accent-fg); transform: translate(-2px, -2px); box-shadow: var(--pop-hover); }
 figure { margin: 0; display: grid; gap: 10px; }
-figure img { border: var(--bw) solid var(--fg); border-radius: var(--r-md); }
+figure img { border: var(--bw) solid var(--fg); border-radius: var(--r-md); max-height: 640px; width: auto; max-width: 100%; justify-self: start; }
 figcaption { font: 500 13px/1.45 var(--body); color: var(--muted-fg); }
 .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; }
 .stats div { display: grid; gap: 4px; align-content: start; padding: 16px; background: var(--card); border: var(--bw) solid var(--fg); border-radius: var(--r-md); }
@@ -284,7 +284,7 @@ figcaption { font: 500 13px/1.45 var(--body); color: var(--muted-fg); }
 /* Galleries */
 .gallery { columns: 3 260px; column-gap: 20px; }
 .gallery figure { break-inside: avoid; margin-bottom: 22px; }
-.gallery img { width: 100%; box-shadow: var(--sticker); transition: transform .3s var(--bounce); }
+.gallery img { width: 100%; max-height: none; box-shadow: var(--sticker); transition: transform .3s var(--bounce); }
 .gallery figure:hover img { transform: rotate(-1deg) scale(1.02); }
 
 /* Resume */
