@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Happy birthday, Emily!</title>
+<meta property="og:title" content="A birthday gift for Emily">
+<meta property="og:description" content="Seven coupons, two cats, zero expiry dates.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root {
+  --bg: #FFF7EC;
+  --fg: #2A1E17;
+  --muted-fg: #6B5649;
+  --card: #FFFFFF;
+  --orange: #F08A3C;
+  --orange-soft: #FFE1C7;
+  --pink: #F472B6;
+  --pink-soft: #FDE2EF;
+  --yellow: #FBBF24;
+  --mint: #34D399;
+  --black-cat: #26211F;
+  --display: "Outfit", system-ui, sans-serif;
+  --body: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --bw: 2px;
+  --pop: 4px 4px 0 0 var(--fg);
+  --pop-active: 2px 2px 0 0 var(--fg);
+  --bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --paws: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90' viewBox='0 0 90 90'%3E%3Cg fill='%23F08A3C' opacity='.13'%3E%3Cellipse cx='22' cy='28' rx='7' ry='6'/%3E%3Ccircle cx='13' cy='18' r='3'/%3E%3Ccircle cx='20' cy='14' r='3'/%3E%3Ccircle cx='27' cy='15' r='3'/%3E%3Ccircle cx='32' cy='21' r='3'/%3E%3C/g%3E%3Cg fill='%232A1E17' opacity='.08'%3E%3Cellipse cx='66' cy='72' rx='7' ry='6'/%3E%3Ccircle cx='57' cy='62' r='3'/%3E%3Ccircle cx='64' cy='58' r='3'/%3E%3Ccircle cx='71' cy='59' r='3'/%3E%3Ccircle cx='76' cy='65' r='3'/%3E%3C/g%3E%3C/svg%3E");
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; min-height: 100vh;
+  background: var(--paws) 0 0 / 90px 90px, var(--bg);
+  color: var(--fg); font: 400 17px/1.6 var(--body);
+}
+.wrap { max-width: 760px; margin: 0 auto; padding: 40px 20px 80px; }
+
+/* Hero */
+.hero { position: relative; text-align: center; padding: 8px 0 24px; }
+.eyebrow { font: 700 12px/1.3 var(--body); letter-spacing: .16em; text-transform: uppercase; color: var(--muted-fg); }
+h1 {
+  font: 800 clamp(2.3rem, 9vw, 4.2rem)/1.02 var(--display);
+  letter-spacing: -0.02em; margin: 10px 0 0; text-wrap: balance;
+}
+h1 .name { color: var(--orange); position: relative; display: inline-block; }
+h1 .name::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 12px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='12' viewBox='0 0 40 12'%3E%3Cpath d='M0 6 Q5 0 10 6 T20 6 T30 6 T40 6' fill='none' stroke='%23F472B6' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E") 0 0 / 40px 12px repeat-x;
+}
+.lead { max-width: 46ch; margin: 22px auto 0; color: var(--muted-fg); font-size: 1.1rem; }
+
+.cats { display: flex; justify-content: center; align-items: flex-end; gap: 4px; margin: 26px auto 0; }
+.cats svg { width: min(42vw, 210px); height: auto; overflow: visible; }
+.cat-orange { animation: bob 3.4s ease-in-out infinite; }
+.cat-black { animation: bob 3.4s ease-in-out infinite 1.7s; }
+.tail { transform-origin: 40px 150px; animation: swish 2.6s ease-in-out infinite; }
+.cat-black .tail { transform-origin: 160px 150px; animation-delay: 1.3s; }
+@keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+@keyframes swish { 0%,100% { transform: rotate(0deg); } 50% { transform: rotate(7deg); } }
+.cat-label { display: flex; justify-content: center; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+.chip { font: 600 13px/1 var(--display); padding: 8px 12px; border-radius: 999px; border: var(--bw) solid var(--fg); background: var(--card); box-shadow: var(--pop-active); }
+
+/* How it works */
+.how {
+  margin: 34px 0 8px; padding: 16px 18px; border: var(--bw) solid var(--fg); border-radius: 16px;
+  background: var(--card); box-shadow: var(--pop); display: grid; gap: 4px;
+}
+.how strong { font-family: var(--display); font-size: 1.05rem; }
+.how p { margin: 0; color: var(--muted-fg); font-size: .98rem; }
+
+/* Coupons */
+h2 { font: 800 clamp(1.5rem, 5vw, 2rem)/1.1 var(--display); margin: 40px 0 6px; }
+.tally { color: var(--muted-fg); font-size: .95rem; margin: 0 0 18px; }
+.grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); }
+
+.coupon {
+  --tone: var(--orange-soft);
+  position: relative; display: grid; grid-template-columns: 84px 1fr; align-items: stretch;
+  width: 100%; padding: 0; text-align: left; font: inherit; color: inherit; cursor: pointer;
+  background: var(--card); border: var(--bw) solid var(--fg); border-radius: 18px;
+  box-shadow: var(--pop); overflow: hidden;
+  transition: transform .25s var(--bounce), box-shadow .25s var(--bounce);
+  -webkit-tap-highlight-color: transparent;
+}
+.coupon:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 0 var(--fg); }
+.coupon:active { transform: translate(2px, 2px); box-shadow: var(--pop-active); }
+.coupon:focus-visible { outline: 3px solid var(--pink); outline-offset: 3px; }
+.coupon[data-kind="chai"] { --tone: var(--pink-soft); }
+.coupon[data-kind="cookies"] { --tone: #FEF3C7; }
+
+.stub {
+  background: var(--tone); display: grid; place-items: center;
+  border-right: var(--bw) dashed var(--fg); position: relative;
+}
+/* ticket notches */
+.stub::before, .stub::after {
+  content: ""; position: absolute; right: -11px; width: 20px; height: 20px; border-radius: 50%;
+  background: var(--bg); border: var(--bw) solid var(--fg);
+}
+.stub::before { top: -11px; }
+.stub::after { bottom: -11px; }
+.stub svg { width: 54px; height: 54px; }
+
+.body { padding: 14px 16px 14px 20px; display: grid; gap: 4px; align-content: center; }
+.kicker { font: 700 11px/1.2 var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--muted-fg); }
+.title { font: 800 1.25rem/1.15 var(--display); }
+.good { font-size: .95rem; color: var(--muted-fg); }
+.hint { font: 600 13px/1.2 var(--display); color: var(--orange); margin-top: 4px; }
+
+.coupon.confirming { background: #FFF3E6; }
+.coupon.confirming .hint { color: var(--fg); }
+
+.coupon.redeemed { cursor: default; box-shadow: var(--pop-active); transform: none; }
+.coupon.redeemed .stub, .coupon.redeemed .body { opacity: .45; filter: grayscale(.6); }
+.stamp {
+  position: absolute; right: 14px; top: 50%; translate: 0 -50%; rotate: -12deg;
+  display: none; align-items: center; gap: 6px;
+  font: 800 15px/1 var(--display); letter-spacing: .06em; text-transform: uppercase;
+  color: #D9467A; border: 3px solid #D9467A; border-radius: 10px; padding: 8px 10px;
+  background: rgba(255,255,255,.85);
+}
+.stamp small { display: block; font: 600 11px/1.2 var(--body); letter-spacing: 0; text-transform: none; margin-top: 3px; }
+.stamp svg { width: 22px; height: 22px; flex: none; }
+.coupon.redeemed .stamp { display: flex; animation: thunk .45s var(--bounce); }
+@keyframes thunk { from { scale: 1.8; opacity: 0; } to { scale: 1; opacity: 1; } }
+
+.undo {
+  margin-top: 8px; justify-self: start; font: 600 12px/1 var(--display); color: var(--muted-fg);
+  background: none; border: 0; padding: 4px 0; text-decoration: underline; cursor: pointer;
+}
+
+.foot { text-align: center; margin-top: 48px; color: var(--muted-fg); }
+.foot .sig { font: 800 1.4rem/1.2 var(--display); color: var(--fg); margin-top: 4px; }
+.fine { font-size: .8rem; margin-top: 18px; opacity: .8; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <section class="hero">
+    <p class="eyebrow">Official gift notice</p>
+    <h1>Happy birthday, <span class="name">Emily!</span></h1>
+    <p class="lead">This is your birthday gift. Seven coupons for things I will bake and brew for you, approved by both your cats.</p>
+
+    <div class="cats" aria-hidden="true">
+      <!-- Orange long-haired cat -->
+      <svg class="cat-orange" viewBox="0 0 200 180">
+        <g class="tail">
+          <path d="M52 150 C14 150 6 110 22 84" fill="none" stroke="#2A1E17" stroke-width="27" stroke-linecap="round"/>
+          <path d="M52 150 C14 150 6 110 22 84" fill="none" stroke="#F08A3C" stroke-width="22" stroke-linecap="round"/>
+          <path d="M28 132 l-9 4 M18 112 l-10 0 M20 96 l-9 -4" stroke="#C9661F" stroke-width="3" stroke-linecap="round"/>
+        </g>
+        <!-- fluffy body -->
+        <g fill="#F08A3C" stroke="#2A1E17" stroke-width="2.5">
+          <circle cx="70" cy="140" r="26"/><circle cx="100" cy="146" r="28"/><circle cx="130" cy="140" r="26"/>
+          <circle cx="78" cy="116" r="22"/><circle cx="122" cy="116" r="22"/>
+        </g>
+        <ellipse cx="100" cy="132" rx="44" ry="30" fill="#F08A3C"/>
+        <ellipse cx="100" cy="138" rx="24" ry="20" fill="#FFE1C7"/>
+        <!-- ears -->
+        <path d="M66 70 L60 26 L94 52 Z" fill="#F08A3C" stroke="#2A1E17" stroke-width="2.5" stroke-linejoin="round"/>
+        <path d="M134 70 L140 26 L106 52 Z" fill="#F08A3C" stroke="#2A1E17" stroke-width="2.5" stroke-linejoin="round"/>
+        <path d="M68 60 L65 36 L84 52 Z" fill="#F9B4C9"/><path d="M132 60 L135 36 L116 52 Z" fill="#F9B4C9"/>
+        <path d="M61 26 l-3 -8 M62 27 l3 -9 M139 26 l3 -8 M138 27 l-3 -9" stroke="#2A1E17" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- fluffy head with ruff -->
+        <g fill="#F08A3C" stroke="#2A1E17" stroke-width="2.5">
+          <circle cx="62" cy="88" r="16"/><circle cx="138" cy="88" r="16"/>
+          <circle cx="70" cy="106" r="16"/><circle cx="130" cy="106" r="16"/><circle cx="100" cy="112" r="18"/>
+        </g>
+        <circle cx="100" cy="80" r="40" fill="#F08A3C"/>
+        <path d="M100 44 v14 M90 46 l4 12 M110 46 l-4 12" stroke="#C9661F" stroke-width="3" stroke-linecap="round"/>
+        <!-- face -->
+        <ellipse cx="84" cy="82" rx="7" ry="8" fill="#2A1E17"/><ellipse cx="116" cy="82" rx="7" ry="8" fill="#2A1E17"/>
+        <ellipse cx="84" cy="83" rx="3" ry="6" fill="#3FAE6B"/><ellipse cx="116" cy="83" rx="3" ry="6" fill="#3FAE6B"/>
+        <circle cx="86" cy="79" r="1.8" fill="#fff"/><circle cx="118" cy="79" r="1.8" fill="#fff"/>
+        <path d="M96 94 h8 l-4 4 Z" fill="#E8708F"/>
+        <path d="M100 98 q-5 6 -10 2 M100 98 q5 6 10 2" fill="none" stroke="#2A1E17" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="M64 92 l-18 -3 M64 97 l-17 3 M136 92 l18 -3 M136 97 l17 3" stroke="#2A1E17" stroke-width="1.8" stroke-linecap="round"/>
+        <circle cx="74" cy="96" r="5" fill="#F9B4C9" opacity=".7"/><circle cx="126" cy="96" r="5" fill="#F9B4C9" opacity=".7"/>
+      </svg>
+
+      <!-- Black long-haired cat -->
+      <svg class="cat-black" viewBox="0 0 200 180">
+        <g class="tail">
+          <path d="M148 150 C186 150 194 110 178 84" fill="none" stroke="#000" stroke-width="27" stroke-linecap="round"/>
+          <path d="M148 150 C186 150 194 110 178 84" fill="none" stroke="#26211F" stroke-width="22" stroke-linecap="round"/>
+          <path d="M172 132 l9 4 M182 112 l10 0 M180 96 l9 -4" stroke="#4A403B" stroke-width="3" stroke-linecap="round"/>
+        </g>
+        <g fill="#26211F" stroke="#000" stroke-width="2.5">
+          <circle cx="70" cy="140" r="26"/><circle cx="100" cy="146" r="28"/><circle cx="130" cy="140" r="26"/>
+          <circle cx="78" cy="116" r="22"/><circle cx="122" cy="116" r="22"/>
+        </g>
+        <ellipse cx="100" cy="132" rx="44" ry="30" fill="#26211F"/>
+        <path d="M86 128 q4 6 0 12 M100 130 q4 6 0 12 M114 128 q4 6 0 12" fill="none" stroke="#4A403B" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M66 70 L60 26 L94 52 Z" fill="#26211F" stroke="#000" stroke-width="2.5" stroke-linejoin="round"/>
+        <path d="M134 70 L140 26 L106 52 Z" fill="#26211F" stroke="#000" stroke-width="2.5" stroke-linejoin="round"/>
+        <path d="M68 60 L65 36 L84 52 Z" fill="#8C5A6B"/><path d="M132 60 L135 36 L116 52 Z" fill="#8C5A6B"/>
+        <path d="M61 26 l-3 -8 M62 27 l3 -9 M139 26 l3 -8 M138 27 l-3 -9" stroke="#000" stroke-width="2.5" stroke-linecap="round"/>
+        <g fill="#26211F" stroke="#000" stroke-width="2.5">
+          <circle cx="62" cy="88" r="16"/><circle cx="138" cy="88" r="16"/>
+          <circle cx="70" cy="106" r="16"/><circle cx="130" cy="106" r="16"/><circle cx="100" cy="112" r="18"/>
+        </g>
+        <circle cx="100" cy="80" r="40" fill="#26211F"/>
+        <ellipse cx="84" cy="82" rx="8" ry="9" fill="#F5C542"/><ellipse cx="116" cy="82" rx="8" ry="9" fill="#F5C542"/>
+        <ellipse cx="84" cy="83" rx="3" ry="7" fill="#000"/><ellipse cx="116" cy="83" rx="3" ry="7" fill="#000"/>
+        <circle cx="86" cy="79" r="1.8" fill="#fff"/><circle cx="118" cy="79" r="1.8" fill="#fff"/>
+        <path d="M96 94 h8 l-4 4 Z" fill="#B5657F"/>
+        <path d="M100 98 q-5 6 -10 2 M100 98 q5 6 10 2" fill="none" stroke="#6B5F59" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="M64 92 l-18 -3 M64 97 l-17 3 M136 92 l18 -3 M136 97 l17 3" stroke="#9A8F89" stroke-width="1.8" stroke-linecap="round"/>
+        <!-- tiny party hat -->
+        <path d="M100 6 L88 42 H112 Z" fill="#F472B6" stroke="#000" stroke-width="2.5" stroke-linejoin="round"/>
+        <path d="M94 26 h12 M91 35 h18" stroke="#FBBF24" stroke-width="3"/>
+        <circle cx="100" cy="6" r="5" fill="#FBBF24" stroke="#000" stroke-width="2"/>
+      </svg>
+    </div>
+  </section>
+
+  <div class="how">
+    <strong>How to redeem</strong>
+    <p>Tap a coupon, then tap again to confirm. It gets stamped with the date. Send me a screenshot and I get baking.</p>
+  </div>
+
+  <h2>Your coupons</h2>
+  <p class="tally" id="tally">7 of 7 left</p>
+
+  <div class="grid" id="grid"></div>
+
+  <footer class="foot">
+    <p>With love, and flour everywhere,</p>
+    <p class="sig">GaGa</p>
+    <p class="fine">No expiry dates. Cats may supervise but may not redeem.</p>
+  </footer>
+</main>
+
+<template id="icon-focaccia">
+  <svg viewBox="0 0 60 60" aria-hidden="true"><rect x="6" y="16" width="48" height="30" rx="9" fill="#E9A54B" stroke="#2A1E17" stroke-width="2.5"/>
+  <g fill="#B86A1E"><circle cx="17" cy="26" r="2.4"/><circle cx="30" cy="24" r="2.4"/><circle cx="43" cy="27" r="2.4"/><circle cx="22" cy="36" r="2.4"/><circle cx="37" cy="37" r="2.4"/></g>
+  <path d="M24 29 q3 -4 6 0 M40 33 q3 -4 6 0" fill="none" stroke="#3FAE6B" stroke-width="2.4" stroke-linecap="round"/></svg>
+</template>
+<template id="icon-chai">
+  <svg viewBox="0 0 60 60" aria-hidden="true"><path d="M22 10 q-4 5 0 9 M30 8 q-4 5 0 9 M38 10 q-4 5 0 9" fill="none" stroke="#2A1E17" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M12 24 h34 l-3 22 a6 6 0 0 1 -6 5 h-16 a6 6 0 0 1 -6 -5 Z" fill="#C98A5A" stroke="#2A1E17" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M46 29 h3 a5 5 0 0 1 0 10 h-4" fill="none" stroke="#2A1E17" stroke-width="2.5"/>
+  <path d="M14 28 h30" stroke="#F3D9B8" stroke-width="3"/></svg>
+</template>
+<template id="icon-cookies">
+  <svg viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="21" fill="#E7B36A" stroke="#2A1E17" stroke-width="2.5"/>
+  <g fill="#4A2A18"><circle cx="22" cy="22" r="3.2"/><circle cx="36" cy="20" r="2.6"/><circle cx="40" cy="33" r="3.2"/><circle cx="27" cy="36" r="2.8"/><circle cx="20" cy="31" r="2.2"/><circle cx="33" cy="43" r="2.4"/></g></svg>
+</template>
+<template id="icon-paw">
+  <svg viewBox="0 0 24 24" aria-hidden="true" fill="#D9467A"><ellipse cx="12" cy="16" rx="5.5" ry="4.5"/><circle cx="5" cy="10" r="2.3"/><circle cx="9.5" cy="6" r="2.3"/><circle cx="14.5" cy="6" r="2.3"/><circle cx="19" cy="10" r="2.3"/></svg>
+</template>
+
+<script>
+(function () {
+  var COUPONS = [
+    { id: "focaccia-1", kind: "focaccia", kicker: "Bakery coupon", title: "1 loaf of focaccia", good: "Good for one fresh loaf, olive oil included." }
+  ];
+  for (var i = 1; i <= 5; i++) {
+    COUPONS.push({ id: "chai-" + i, kind: "chai", kicker: "Chai coupon " + i + " of 5", title: "2 cups of chai", good: "One cup for you, one for whoever you like." });
+  }
+  COUPONS.push({ id: "cookies-1", kind: "cookies", kicker: "Bakery coupon", title: "1 batch of chocolate chip cookies", good: "A full batch. Sharing optional." });
+
+  var KEY = "emily-bday-coupons-v1";
+  var state = {};
+  try { state = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { state = {}; }
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+
+  var grid = document.getElementById("grid");
+  var tally = document.getElementById("tally");
+  var confirmTimer = null;
+
+  function fmt(iso) {
+    try { return new Date(iso).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" }); }
+    catch (e) { return ""; }
+  }
+
+  function render() {
+    grid.innerHTML = "";
+    var left = 0;
+    COUPONS.forEach(function (c) {
+      var redeemedAt = state[c.id];
+      if (!redeemedAt) left++;
+      var el = document.createElement("button");
+      el.type = "button";
+      el.className = "coupon" + (redeemedAt ? " redeemed" : "");
+      el.dataset.kind = c.kind;
+      el.dataset.id = c.id;
+      el.setAttribute("aria-label", c.title + (redeemedAt ? ", redeemed " + fmt(redeemedAt) : ", tap to redeem"));
+
+      var stub = document.createElement("div");
+      stub.className = "stub";
+      stub.appendChild(document.getElementById("icon-" + c.kind).content.cloneNode(true));
+
+      var body = document.createElement("div");
+      body.className = "body";
+      body.innerHTML = '<span class="kicker"></span><span class="title"></span><span class="good"></span><span class="hint"></span>';
+      body.querySelector(".kicker").textContent = c.kicker;
+      body.querySelector(".title").textContent = c.title;
+      body.querySelector(".good").textContent = c.good;
+      body.querySelector(".hint").textContent = redeemedAt ? "" : "Tap to redeem";
+
+      var stamp = document.createElement("div");
+      stamp.className = "stamp";
+      stamp.appendChild(document.getElementById("icon-paw").content.cloneNode(true));
+      var st = document.createElement("div");
+      st.innerHTML = "Redeemed<small></small>";
+      st.querySelector("small").textContent = redeemedAt ? fmt(redeemedAt) : "";
+      stamp.appendChild(st);
+
+      el.appendChild(stub); el.appendChild(body); el.appendChild(stamp);
+
+      if (redeemedAt) {
+        var undo = document.createElement("span");
+        undo.className = "undo";
+        undo.setAttribute("role", "button");
+        undo.tabIndex = 0;
+        undo.textContent = "Oops, undo";
+        undo.addEventListener("click", function (ev) {
+          ev.stopPropagation();
+          delete state[c.id]; save(); render();
+        });
+        body.appendChild(undo);
+      }
+
+      el.addEventListener("click", function () {
+        if (state[c.id]) return;
+        if (!el.classList.contains("confirming")) {
+          document.querySelectorAll(".coupon.confirming").forEach(function (o) {
+            o.classList.remove("confirming");
+            o.querySelector(".hint").textContent = "Tap to redeem";
+          });
+          el.classList.add("confirming");
+          el.querySelector(".hint").textContent = "Tap again to redeem";
+          clearTimeout(confirmTimer);
+          confirmTimer = setTimeout(function () {
+            el.classList.remove("confirming");
+            el.querySelector(".hint").textContent = "Tap to redeem";
+          }, 3500);
+          return;
+        }
+        clearTimeout(confirmTimer);
+        state[c.id] = new Date().toISOString();
+        save(); render();
+      });
+
+      grid.appendChild(el);
+    });
+    tally.textContent = left === 0 ? "All redeemed. Time for a new birthday." : left + " of " + COUPONS.length + " left";
+  }
+
+  render();
+})();
+</script>
+</body>
+</html>
