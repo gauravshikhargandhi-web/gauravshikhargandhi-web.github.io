@@ -73,6 +73,10 @@ summary{cursor:pointer;color:var(--muted);font-size:13px}
 .toast.show{opacity:1}
 .fine{color:var(--muted);font-size:12px;text-align:center;margin-top:24px}
 h2{font-size:17px;margin-bottom:10px}
+.addcard{border-color:var(--accent)}
+.ideas{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.ideas button{all:unset;cursor:pointer;font-size:13px;background:var(--chip);border:1px dashed var(--line);border-radius:999px;padding:5px 11px;color:var(--muted)}
+.ideas button:hover{color:var(--text);border-color:var(--muted)}
 .crest{text-align:center;color:var(--gold);padding:8px 0 18px;margin-bottom:14px;border-bottom:1px solid var(--line)}
 .crest .mono{position:relative;width:140px;height:120px;margin:0 auto;font-family:"Pinyon Script",cursive;line-height:1}
 .crest .mono .p{position:absolute;left:10px;top:-8px;font-size:118px}
@@ -95,12 +99,13 @@ h2{font-size:17px;margin-bottom:10px}
   </header>
   <p class="sub"><span class="status"><span class="dot" id="dot"></span><span id="statusText">Connecting…</span></span> · Everyone starts with 1,000 play coins. Prices move as people bet. Winning shares pay 1 coin each.</p>
 
-  <div id="markets"></div>
-
-  <div class="card">
-    <h2>Start a new market</h2>
-    <form class="new" id="newForm"><input id="newQ" maxlength="140" placeholder="Will the speeches run over 2 hours?" required><button>Create</button></form>
+  <div class="card addcard">
+    <h2>➕ Add a prediction market</h2>
+    <form class="new" id="newForm"><input id="newQ" maxlength="140" placeholder="Type any yes/no question…" required><button>Add</button></form>
+    <div class="ideas" id="ideas"></div>
   </div>
+
+  <div id="markets"></div>
 
   <div class="card">
     <h2>Leaderboard</h2>
@@ -199,7 +204,7 @@ h2{font-size:17px;margin-bottom:10px}
   }
   const ago = ts => { if (!ts) return ''; const s = (Date.now() - ts)/1000; return s < 60 ? 'now' : s < 3600 ? Math.floor(s/60)+'m' : s < 86400 ? Math.floor(s/3600)+'h' : Math.floor(s/86400)+'d'; };
 
-  function render(){
+  let render = function(){
     const {markets, bal, worth} = replay();
     $('me').hidden = !me;
     if (me){ $('meName').textContent = me; $('meBal').textContent = fmt(bal(me)) + ' 🪙'; }
@@ -229,7 +234,7 @@ h2{font-size:17px;margin-bottom:10px}
     }).join('');
     const rows = [...worth.entries()].sort((a,b) => b[1]-a[1]);
     $('board').innerHTML = rows.length ? rows.map(([u,w]) => `<li class="${u===me?'mine':''}"><span>${esc(u)}</span><span>${fmt(w)} 🪙</span></li>`).join('') : '<li><span>No one yet</span></li>';
-  }
+  };
 
   // ---------- network ----------
   function setStatus(ok, text){ $('dot').className = 'dot ' + (ok ? 'ok' : 'err'); $('statusText').textContent = text; }
@@ -300,6 +305,13 @@ h2{font-size:17px;margin-bottom:10px}
     publish({k:'new', m:'m' + Date.now().toString(36), u:me, q}); $('newQ').value = ''; toast('Market created');
   });
 
+  const IDEAS = ['Will the baraat start on time?','Will Gautam cry during the pheras?','Will Priya cry first?','Will the shoe-stealing ransom go over $500?','Will speeches run over 30 minutes?','Will the dance floor still be full at midnight?','Will anyone fall on the dance floor?','Will the DJ play Tunak Tunak Tun?'];
+  function renderIdeas(){
+    const have = new Set([...replay().markets.values()].map(m => m.q.toLowerCase()));
+    $('ideas').innerHTML = IDEAS.filter(q => !have.has(q.toLowerCase())).map(q => `<button type="button" data-idea="${esc(q)}">${esc(q)}</button>`).join('');
+  }
+  document.addEventListener('click', ev => { const i = ev.target.closest('[data-idea]'); if (i){ $('newQ').value = i.dataset.idea; $('newQ').focus(); } });
+  const _render = render; render = function(){ _render(); renderIdeas(); };
   render();
   if (!me) needName();
   poll(); setInterval(poll, 6000);
