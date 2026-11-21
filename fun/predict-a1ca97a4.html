@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow, noarchive">
-<title>Hot Takes Exchange</title>
-<meta property="og:title" content="Will Gautam trip walking on stage?">
+<title>Priya &amp; Gautam Markets</title>
+<meta property="og:title" content="Priya &amp; Gautam: the wedding prediction market">
 <meta property="og:description" content="Play-money prediction market. No real money. Place your bets.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Pinyon+Script&family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
 <style>
-:root{--bg:#0f1412;--card:#1a211e;--line:#2a3430;--text:#eef3f0;--muted:#93a39c;--yes:#2fbf71;--yes-d:#1f8a51;--no:#e5544b;--no-d:#a8372f;--accent:#9d8cff;--chip:#24302b}
+:root{--bg:#0f1412;--card:#1a211e;--line:#2a3430;--text:#eef3f0;--muted:#93a39c;--yes:#2fbf71;--yes-d:#1f8a51;--no:#e5544b;--no-d:#a8372f;--accent:#9d8cff;--gold:#d4a55a;--chip:#24302b}
 *{box-sizing:border-box}
 html,body{margin:0}
 body{background:var(--bg);color:var(--text);font:15px/1.5 "Plus Jakarta Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
@@ -73,12 +73,24 @@ summary{cursor:pointer;color:var(--muted);font-size:13px}
 .toast.show{opacity:1}
 .fine{color:var(--muted);font-size:12px;text-align:center;margin-top:24px}
 h2{font-size:17px;margin-bottom:10px}
+.crest{text-align:center;color:var(--gold);padding:8px 0 18px;margin-bottom:14px;border-bottom:1px solid var(--line)}
+.crest .mono{position:relative;width:140px;height:120px;margin:0 auto;font-family:"Pinyon Script",cursive;line-height:1}
+.crest .mono .p{position:absolute;left:10px;top:-8px;font-size:118px}
+.crest .mono .g{position:absolute;left:52px;top:22px;font:500 96px "Cormorant Garamond",serif}
+.crest .names{font:500 22px "Cormorant Garamond",serif;letter-spacing:.28em;margin-top:6px;padding-left:.28em}
+.crest .names i{font:400 24px "Pinyon Script",cursive;letter-spacing:0;font-style:normal;margin:0 .5em 0 .15em}
+.crest .date{font:500 14px "Cormorant Garamond",serif;letter-spacing:.35em;opacity:.8;margin-top:2px;font-variant-numeric:lining-nums;padding-left:.35em}
 </style>
 </head>
 <body>
 <div class="wrap">
+  <div class="crest" role="img" aria-label="Priya and Gautam, 11.21.26">
+    <div class="mono" aria-hidden="true"><span class="p">P</span><span class="g">G</span></div>
+    <div class="names" aria-hidden="true">PRIYA<i>and</i>GAUTAM</div>
+    <div class="date" aria-hidden="true">11 · 21 · 26</div>
+  </div>
   <header>
-    <div class="logo">Hot Takes <span>Exchange</span></div>
+    <div class="logo">Wedding <span>Markets</span></div>
     <div class="me" id="me" hidden><span id="meName"></span><span class="bal" id="meBal"></span><button id="switch" title="Change name">change</button></div>
   </header>
   <p class="sub"><span class="status"><span class="dot" id="dot"></span><span id="statusText">Connecting…</span></span> · Everyone starts with 1,000 play coins. Prices move as people bet. Winning shares pay 1 coin each.</p>
